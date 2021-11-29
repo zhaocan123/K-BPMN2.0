@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions>
+    <process id="BPM17_Running_Examplea" name="BPM17_Running_Example" processType="None" isClosed="false" isExecutable="false">
+        <documentation>
+            <![CDATA[uint userID; \nbool applicantEligible = false; ]]>
+        </documentation>
+        <startEvent id="StartEvent_1" name="">
+            <outgoing>SequenceFlow_16ew9vc</outgoing>
+        </startEvent>
+        <userTask id="Task_06xlgcp" name="Enter userID" implementation="##unspecified">
+            <documentation id="sid-a9be33cf-775d-4d17-a7ca-0079bbc1b062">
+                <![CDATA[(uint _userID) : (uint userID) -> {userID = _userID; }]]>
+            </documentation>
+            <incoming>SequenceFlow_16ew9vc</incoming>
+            <outgoing>sid-ABC11D1A-273B-4A2E-80B8-A1577A984FD9</outgoing>
+        </userTask>
+         <sequenceFlow id="SequenceFlow_16ew9vc" name="" isImmediate="true" sourceRef="StartEvent_1" targetRef="Task_06xlgcp">
+        <sequenceFlow id="sid-ABC11D1A-273B-4A2E-80B8-A1577A984FD9" name="" isImmediate="true" sourceRef="Task_06xlgcp" targetRef="EndEvent_1ubxmre">
+          <conditionExpression xsi:type="tFormalExpression" id="sid-d77dec8e-b178-468a-9d64-09d69a093802" language="">applicantEligible</conditionExpression>
+        <endEvent id="EndEvent_1ubxmre" name="Loan app rejected">
+            <incoming>sid-ABC11D1A-273B-4A2E-80B8-A1577A984FD9</incoming>
+        </endEvent>
+    </process>
+</definitions>
